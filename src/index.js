@@ -8,9 +8,12 @@ const promoSettings = {
   date: `23 сентября 1994 г.`
 };
 
+const filmsList = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
+
 ReactDOM.render(
     <App
       promoSettings={promoSettings}
+      filmsList={filmsList}
     />,
     document.querySelector(`#root`)
 );
