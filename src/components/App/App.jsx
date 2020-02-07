@@ -12,13 +12,13 @@ const App = ({filmsList, promoSettings}) => {
   );
 };
 
-App.PropTypes = {
+App.propTypes = {
   promoSettings: PropTypes.objectOf({
     name: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired
   }),
-  filmsList: PropTypes.array.isRequired
+  filmsList: PropTypes.string.isRequired
 };
 
 export default App;

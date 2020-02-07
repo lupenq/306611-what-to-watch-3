@@ -132,7 +132,7 @@ const Main = ({promoSettings, filmsList}) => {
   );
 };
 
-Main.PropTypes = {
+Main.propTypes = {
   promoSettings: PropTypes.objectOf({
     name: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
