@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Main = ({promoSettings, filmsList}) => {
+const Main = ({promoSettings, filmsList, onMovieCardTitleClick}) => {
   return (
     <>
   <section className="movie-card">
@@ -102,7 +102,7 @@ const Main = ({promoSettings, filmsList}) => {
             <div className="small-movie-card__image">
               <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
             </div>
-            <h3 className="small-movie-card__title">
+            <h3 className="small-movie-card__title" onClick={onMovieCardTitleClick}>
               <a className="small-movie-card__link" href="movie-page.html">{item}</a>
             </h3>
           </article>
@@ -133,12 +133,13 @@ const Main = ({promoSettings, filmsList}) => {
 };
 
 Main.propTypes = {
-  promoSettings: PropTypes.objectOf({
+  promoSettings: PropTypes.shape({
     name: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired
   }),
-  filmsList: PropTypes.array.isRequired
+  filmsList: PropTypes.array.isRequired,
+  onMovieCardTitleClick: PropTypes.func.isRequired
 };
 
 export default Main;
