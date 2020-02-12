@@ -1,3 +1,5 @@
+import MoviesList from '../MoviesList/MoviesList';
+
 const Main = ({promoSettings, filmsList, onMovieCardTitleClick}) => {
   return (
     <>
@@ -92,19 +94,10 @@ const Main = ({promoSettings, filmsList, onMovieCardTitleClick}) => {
           <a href="#" className="catalog__genres-link">Thrillers</a>
         </li>
       </ul>
-
-      <div className="catalog__movies-list">
-        {filmsList.map((item, index) =>
-          <article className="small-movie-card catalog__movies-card" key={index + 1}>
-            <div className="small-movie-card__image">
-              <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
-            </div>
-            <h3 className="small-movie-card__title" onClick={onMovieCardTitleClick}>
-              <a className="small-movie-card__link" href="movie-page.html">{item}</a>
-            </h3>
-          </article>
-        )}
-      </div>
+      <MoviesList
+        filmsList={filmsList}
+        onMovieCardTitleClick={onMovieCardTitleClick}
+      />
 
       <div className="catalog__more">
         <button className="catalog__button" type="button">Show more</button>

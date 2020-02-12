@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
 import App from './components/App/App.jsx';
+import films from './mocks/films';
 
 const promoSettings = {
   name: `Криминальное чтиво`,
@@ -7,12 +8,12 @@ const promoSettings = {
   date: `23 сентября 1994 г.`
 };
 
-const filmsList = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
+// const filmsList = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
 
 ReactDOM.render(
     <App
       promoSettings={promoSettings}
-      filmsList={filmsList}
+      filmsList={films}
     />,
     document.querySelector(`#root`)
 );
