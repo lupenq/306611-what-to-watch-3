@@ -37,4 +37,14 @@ class MoviesList extends React.Component {
   }
 }
 
+MoviesList.propTypes = {
+  filmsList: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        picture: PropTypes.string.isRequired
+      })
+  ),
+  onMovieCardTitleClick: PropTypes.func.isRequired
+};
+
 export default MoviesList;

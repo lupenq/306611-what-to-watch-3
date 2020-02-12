@@ -18,4 +18,11 @@ const SmallMovieCard = ({name, picture, onMovieCardHover, onMovieCardUnhover}) =
   );
 };
 
+SmallMovieCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  onMovieCardHover: PropTypes.func.isRequired,
+  onMovieCardUnhover: PropTypes.func.isRequired,
+};
+
 export default SmallMovieCard;
