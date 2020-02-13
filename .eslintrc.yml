@@ -18,3 +18,13 @@ plugins: ['react']
 settings:
   react:
     version: '16'
+
+# Правила, чтобы еслинт не ругался на отсутсвие импортов.
+rules:
+  react/react-in-jsx-scope: 0
+
+globals:
+  React: true
+  PropTypes: true
+  renderer: true
+  Enzyme: true

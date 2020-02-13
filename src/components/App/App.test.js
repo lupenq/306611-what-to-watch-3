@@ -1,5 +1,3 @@
-import React from 'react';
-import renderer from "react-test-renderer";
 import App from './App.jsx';
 
 it(`Render App`, () => {

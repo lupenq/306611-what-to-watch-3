@@ -1,11 +1,8 @@
-import React from "react";
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+//  import React from "react";
+//  import Enzyme, {shallow} from "enzyme";
+//  import Adapter from "enzyme-adapter-react-16";
 import Main from "./Main.jsx";
 
-Enzyme.configure({
-  adapter: new Adapter(),
-});
 
 it(`Should movie title be pressed`, () => {
   const promoSettings = {
@@ -19,7 +16,7 @@ it(`Should movie title be pressed`, () => {
 
   const onMovieButtonClick = jest.fn();
 
-  const main = shallow(
+  const main = Enzyme.shallow(
       <Main
         promoSettings={promoSettings}
         filmsList={filmsList}

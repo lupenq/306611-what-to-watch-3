@@ -1,6 +1,4 @@
-import React from 'react';
 import Main from '../Main/Main.jsx';
-import PropTypes from 'prop-types';
 
 const movieCardTitleHandler = (e) => {
   e.preventDefault();
