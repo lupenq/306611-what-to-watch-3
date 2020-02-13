@@ -1,4 +1,4 @@
-import Main from '../Main/Main.jsx';
+import Main from '../main/main';
 
 const movieCardTitleHandler = (e) => {
   e.preventDefault();

@@ -1,4 +1,4 @@
-import SmallMovieCard from "./SmallMovieCard";
+import SmallMovieCard from "./small-movie-card";
 
 
 it(`Should hover on SmallMovieCard`, () => {
@@ -24,12 +24,9 @@ it(`Should hover on SmallMovieCard`, () => {
 
   const movieCards = main.find(`.small-movie-card`);
   movieCards.forEach((card) => {
-    // card.props().onMouseOver();
     card.simulate(`mouseover`);
   });
 
-
-  //  movieCardTitle.props().onClick();
 
   expect(onMovieCardHover.mock.calls.length).toBe(movieCards.length);
 });

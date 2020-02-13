@@ -1,4 +1,4 @@
-import Main from './Main.jsx';
+import Main from './main';
 
 it(`Render Main`, () => {
   const promoSettings = {

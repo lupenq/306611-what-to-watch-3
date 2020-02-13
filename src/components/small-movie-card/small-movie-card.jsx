@@ -1,5 +1,3 @@
-
-
 const SmallMovieCard = ({name, picture, onMovieCardHover, onMovieCardUnhover}) => {
 
   return (

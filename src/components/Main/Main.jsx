@@ -1,4 +1,4 @@
-import MoviesList from '../MoviesList/MoviesList';
+import MoviesList from '../movies-list/movies-list';
 
 const Main = ({promoSettings, filmsList, onMovieCardTitleClick}) => {
   return (
