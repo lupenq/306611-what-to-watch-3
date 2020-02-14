@@ -13,7 +13,7 @@ it(`Render SmallMovieCard`, () => {
       <SmallMovieCard
         name={films.name}
         picture={films.picture}
-        key={films.name + Math.random()}
+        key={films.name}
         onMovieCardHover={() => {}}
         onMovieCardUnhover={() => {}}
       />
