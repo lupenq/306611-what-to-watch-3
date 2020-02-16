@@ -1,4 +1,4 @@
-import MoviesList from './MoviesList';
+import MoviesList from './movies-list';
 
 it(`Render MoviesList`, () => {
   const IMG_URL = `https://api.adorable.io/avatars/128`;

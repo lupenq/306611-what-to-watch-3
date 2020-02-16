@@ -3,6 +3,7 @@
 exports[`Render SmallMovieCard 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
+  onClick={[Function]}
   onMouseOut={[Function]}
   onMouseOver={[Function]}
 >
@@ -22,6 +23,7 @@ exports[`Render SmallMovieCard 1`] = `
     <a
       className="small-movie-card__link"
       href="movie-page.html"
+      onClick={[Function]}
     >
       Интерстеллар
     </a>

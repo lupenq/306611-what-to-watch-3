@@ -1,6 +1,6 @@
-import Main from './Main.jsx';
+import App from './app';
 
-it(`Render Main`, () => {
+it(`Render App`, () => {
   const promoSettings = {
     name: `Криминальное чтиво`,
     genre: `Драма/Криминальный`,
@@ -10,13 +10,11 @@ it(`Render Main`, () => {
   const filmsList = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
 
   const tree = renderer
-  .create(
-      <Main
-        promoSettings={promoSettings}
-        filmsList={filmsList}
-        onMovieCardTitleClick={() => {}}
-      />
-  ).toJSON();
+  .create(<App
+    promoSettings={promoSettings}
+    filmsList={filmsList}
+  />)
+    .toJSON();
 
   expect(tree).toMatchSnapshot();
 });
