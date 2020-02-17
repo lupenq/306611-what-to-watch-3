@@ -5,7 +5,8 @@ it(`Render SmallMovieCard`, () => {
 
   const films = {
     name: `Интерстеллар`,
-    picture: `${IMG_URL}`
+    picture: `${IMG_URL}`,
+    id: 1
   };
 
   const tree = renderer
@@ -13,9 +14,11 @@ it(`Render SmallMovieCard`, () => {
       <SmallMovieCard
         name={films.name}
         picture={films.picture}
+        id={films.id}
         key={films.name}
         onMovieCardHover={() => {}}
         onMovieCardUnhover={() => {}}
+        onMovieCardTitleClick={() => {}}
       />
   ).toJSON();
 

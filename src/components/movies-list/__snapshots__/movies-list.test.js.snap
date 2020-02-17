@@ -14,9 +14,9 @@ exports[`Render MoviesList 1`] = `
       className="small-movie-card__image"
     >
       <img
-        alt="Интерстеллар"
+        alt="Интерстеллар1"
         height="175"
-        src="https://api.adorable.io/avatars/128"
+        src="https://www.kinopoisk.ru/images/film_big/258687.jpg"
         width="280"
       />
     </div>
@@ -28,7 +28,7 @@ exports[`Render MoviesList 1`] = `
         href="movie-page.html"
         onClick={[Function]}
       >
-        Интерстеллар
+        Интерстеллар1
       </a>
     </h3>
   </article>
@@ -42,9 +42,9 @@ exports[`Render MoviesList 1`] = `
       className="small-movie-card__image"
     >
       <img
-        alt="Ирландец"
+        alt="Зеленая книга"
         height="175"
-        src="https://api.adorable.io/avatars/128"
+        src="https://www.kinopoisk.ru/images/film_big/1108577.jpg"
         width="280"
       />
     </div>
@@ -56,175 +56,7 @@ exports[`Render MoviesList 1`] = `
         href="movie-page.html"
         onClick={[Function]}
       >
-        Ирландец
-      </a>
-    </h3>
-  </article>
-  <article
-    className="small-movie-card catalog__movies-card"
-    onClick={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
-  >
-    <div
-      className="small-movie-card__image"
-    >
-      <img
-        alt="Один дома"
-        height="175"
-        src="https://api.adorable.io/avatars/128"
-        width="280"
-      />
-    </div>
-    <h3
-      className="small-movie-card__title"
-    >
-      <a
-        className="small-movie-card__link"
-        href="movie-page.html"
-        onClick={[Function]}
-      >
-        Один дома
-      </a>
-    </h3>
-  </article>
-  <article
-    className="small-movie-card catalog__movies-card"
-    onClick={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
-  >
-    <div
-      className="small-movie-card__image"
-    >
-      <img
-        alt="Танго в Париже"
-        height="175"
-        src="https://api.adorable.io/avatars/128"
-        width="280"
-      />
-    </div>
-    <h3
-      className="small-movie-card__title"
-    >
-      <a
-        className="small-movie-card__link"
-        href="movie-page.html"
-        onClick={[Function]}
-      >
-        Танго в Париже
-      </a>
-    </h3>
-  </article>
-  <article
-    className="small-movie-card catalog__movies-card"
-    onClick={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
-  >
-    <div
-      className="small-movie-card__image"
-    >
-      <img
-        alt="Зелёная книга"
-        height="175"
-        src="https://api.adorable.io/avatars/128"
-        width="280"
-      />
-    </div>
-    <h3
-      className="small-movie-card__title"
-    >
-      <a
-        className="small-movie-card__link"
-        href="movie-page.html"
-        onClick={[Function]}
-      >
-        Зелёная книга
-      </a>
-    </h3>
-  </article>
-  <article
-    className="small-movie-card catalog__movies-card"
-    onClick={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
-  >
-    <div
-      className="small-movie-card__image"
-    >
-      <img
-        alt="Мимино"
-        height="175"
-        src="https://api.adorable.io/avatars/128"
-        width="280"
-      />
-    </div>
-    <h3
-      className="small-movie-card__title"
-    >
-      <a
-        className="small-movie-card__link"
-        href="movie-page.html"
-        onClick={[Function]}
-      >
-        Мимино
-      </a>
-    </h3>
-  </article>
-  <article
-    className="small-movie-card catalog__movies-card"
-    onClick={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
-  >
-    <div
-      className="small-movie-card__image"
-    >
-      <img
-        alt="Человек-паук"
-        height="175"
-        src="https://api.adorable.io/avatars/128˙}"
-        width="280"
-      />
-    </div>
-    <h3
-      className="small-movie-card__title"
-    >
-      <a
-        className="small-movie-card__link"
-        href="movie-page.html"
-        onClick={[Function]}
-      >
-        Человек-паук
-      </a>
-    </h3>
-  </article>
-  <article
-    className="small-movie-card catalog__movies-card"
-    onClick={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
-  >
-    <div
-      className="small-movie-card__image"
-    >
-      <img
-        alt="Бойцовский клуб"
-        height="175"
-        src="https://api.adorable.io/avatars/128}"
-        width="280"
-      />
-    </div>
-    <h3
-      className="small-movie-card__title"
-    >
-      <a
-        className="small-movie-card__link"
-        href="movie-page.html"
-        onClick={[Function]}
-      >
-        Бойцовский клуб
+        Зеленая книга
       </a>
     </h3>
   </article>

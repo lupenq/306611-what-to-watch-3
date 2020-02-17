@@ -44,7 +44,7 @@ class App extends React.PureComponent {
           </Route>
           <Route exact path="/dev-movie-page">
             <MoviePage
-              moviePage={moviePage}
+              id={moviePage.id}
             />
           </Route>
         </Switch>
@@ -54,7 +54,7 @@ class App extends React.PureComponent {
 }
 
 App.propTypes = {
-  promoSettings: PropTypes.objectOf({
+  promoSettings: PropTypes.shape({
     name: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired
