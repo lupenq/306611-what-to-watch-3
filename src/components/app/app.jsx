@@ -1,10 +1,9 @@
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import Main from '../main/main.jsx';
+import Main from '../main/main';
 import MoviePage from '../movie-page/movie-page';
 import moviePage from '../../mocks/moviePage';
-import {PureComponent} from 'react';
 
-class App extends PureComponent {
+class App extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {activeMovieId: null};

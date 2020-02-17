@@ -5,6 +5,25 @@ const MoviePage = (props) => {
 
   const movies = films.find((movie) => movie.id === id);
 
+  const ratingLevel = () => {
+    let rating = +movies.ratingScore;
+
+    switch (true) {
+      case rating >= 0 && rating <= 3:
+        return `Bad`;
+      case rating >= 3 && rating <= 5:
+        return `Normal`;
+      case rating >= 5 && rating <= 8:
+        return `Good`;
+      case rating >= 8 && rating < 10:
+        return `Very good`;
+      case rating === 10:
+        return `Awesome`;
+    }
+
+    return null;
+  };
+
   return (
     <>
     <section className="movie-card movie-card--full">
@@ -82,7 +101,7 @@ const MoviePage = (props) => {
             <div className="movie-rating">
               <div className="movie-rating__score">{movies.ratingScore}</div>
               <p className="movie-rating__meta">
-                <span className="movie-rating__level">{movies.ratingLevel}</span>
+                <span className="movie-rating__level">{ratingLevel()}</span>
                 <span className="movie-rating__count">{movies.ratingCount} ratings</span>
               </p>
             </div>
