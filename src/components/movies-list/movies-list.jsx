@@ -9,12 +9,16 @@ class MoviesList extends React.Component {
     this._movieCardUnhoverHandler = this._movieCardUnhoverHandler.bind(this);
   }
 
-  _movieCardHoverHandler(name) {
-    this.setState({activeHoverMovieName: name});
+  // _movieCardHoverHandler(id) {
+  //   setTimeout(() => this.setState({activeHoverMovieName: id}), 1000);
+  // }
+
+  _movieCardHoverHandler(id) {
+    this.setState({activeHoverMovieName: id});
   }
 
   _movieCardUnhoverHandler() {
-    this.setState({activeHoverMovieName: ``});
+    this.setState({activeHoverMovieName: null});
   }
 
   render() {
@@ -22,12 +26,14 @@ class MoviesList extends React.Component {
 
     return <div className="catalog__movies-list">
       {
-        filmsList.map((item) =>(
+        filmsList.map((item) => (
           <SmallMovieCard
             name={item.name}
             picture={item.picture}
             key={item.id}
             id={item.id}
+            preview={item.preview}
+            play={this.state.activeHoverMovieName ? this.state.activeHoverMovieName : null}
             onMovieCardTitleClick={onMovieCardTitleClick}
             onMovieCardHover={this._movieCardHoverHandler}
             onMovieCardUnhover={this._movieCardUnhoverHandler}

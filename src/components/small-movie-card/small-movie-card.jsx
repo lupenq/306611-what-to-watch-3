@@ -1,14 +1,20 @@
-const SmallMovieCard = ({name, picture, onMovieCardHover, onMovieCardUnhover, onMovieCardTitleClick, id}) => {
+import Videoplayer from '../videoplayer/videoplayer';
+
+const SmallMovieCard = ({name, picture, onMovieCardHover, onMovieCardUnhover, onMovieCardTitleClick, id, play, preview}) => {
+  const playVideo = () => {
+    return play === id ? <Videoplayer preview={preview} picture={picture}/> : <img src={picture} alt={name} width="280" height="175"/>;
+  };
 
   return (
+
     <article
       className="small-movie-card catalog__movies-card"
-      onMouseOver={() => onMovieCardHover(name)}
+      onMouseOver={() => onMovieCardHover(id)}
       onMouseOut={() => onMovieCardUnhover()}
       onClick={() => onMovieCardTitleClick(id)}
     >
       <div className="small-movie-card__image">
-        <img src={picture} alt={name} width="280" height="175" />
+        {playVideo()}
       </div>
       <h3 className="small-movie-card__title">
         <a className="small-movie-card__link"
@@ -29,7 +35,9 @@ SmallMovieCard.propTypes = {
   id: PropTypes.number.isRequired,
   onMovieCardHover: PropTypes.func.isRequired,
   onMovieCardUnhover: PropTypes.func.isRequired,
-  onMovieCardTitleClick: PropTypes.func.isRequired
+  onMovieCardTitleClick: PropTypes.func.isRequired,
+  play: PropTypes.any,
+  preview: PropTypes.any
 };
 
 export default SmallMovieCard;
