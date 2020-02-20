@@ -1,35 +1,17 @@
 import films from '../../mocks/films';
+import Tabs from '../tabs/tabs';
 
 const MoviePage = (props) => {
   const {id} = props;
 
-  const movies = films.find((movie) => movie.id === id);
-
-  const ratingLevel = () => {
-    let rating = +movies.ratingScore;
-
-    switch (true) {
-      case rating >= 0 && rating <= 3:
-        return `Bad`;
-      case rating >= 3 && rating <= 5:
-        return `Normal`;
-      case rating >= 5 && rating <= 8:
-        return `Good`;
-      case rating >= 8 && rating < 10:
-        return `Very good`;
-      case rating === 10:
-        return `Awesome`;
-    }
-
-    return null;
-  };
+  const movie = films.find((item) => item.id === id);
 
   return (
     <>
     <section className="movie-card movie-card--full">
       <div className="movie-card__hero">
         <div className="movie-card__bg">
-          <img src={movies.bigPoster} alt="The Grand Budapest Hotel" />
+          <img src={movie.bigPoster} alt="The Grand Budapest Hotel" />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -52,10 +34,10 @@ const MoviePage = (props) => {
 
         <div className="movie-card__wrap">
           <div className="movie-card__desc">
-            <h2 className="movie-card__title">{movies.name}</h2>
+            <h2 className="movie-card__title">{movie.name}</h2>
             <p className="movie-card__meta">
-              <span className="movie-card__genre">{movies.genre}</span>
-              <span className="movie-card__year">{movies.year}</span>
+              <span className="movie-card__genre">{movie.genre}</span>
+              <span className="movie-card__year">{movie.year}</span>
             </p>
 
             <div className="movie-card__buttons">
@@ -80,40 +62,10 @@ const MoviePage = (props) => {
       <div className="movie-card__wrap movie-card__translate-top">
         <div className="movie-card__info">
           <div className="movie-card__poster movie-card__poster--big">
-            <img src={movies.picture} alt={movies.name + ` poster`} width="218" height="327" />
+            <img src={movie.picture} alt={movie.name + ` poster`} width="218" height="327" />
           </div>
 
-          <div className="movie-card__desc">
-            <nav className="movie-nav movie-card__nav">
-              <ul className="movie-nav__list">
-                <li className="movie-nav__item movie-nav__item--active">
-                  <a href="#" className="movie-nav__link">Overview</a>
-                </li>
-                <li className="movie-nav__item">
-                  <a href="#" className="movie-nav__link">Details</a>
-                </li>
-                <li className="movie-nav__item">
-                  <a href="#" className="movie-nav__link">Reviews</a>
-                </li>
-              </ul>
-            </nav>
-
-            <div className="movie-rating">
-              <div className="movie-rating__score">{movies.ratingScore}</div>
-              <p className="movie-rating__meta">
-                <span className="movie-rating__level">{ratingLevel()}</span>
-                <span className="movie-rating__count">{movies.ratingCount} ratings</span>
-              </p>
-            </div>
-
-            <div className="movie-card__text">
-              <p>{movies.description}</p>
-
-              <p className="movie-card__director"><strong>Director: {movies.director}</strong></p>
-
-              <p className="movie-card__starring"><strong>Starring: {movies.starring} и другие</strong></p>
-            </div>
-          </div>
+          <Tabs movie={movie} />
         </div>
       </div>
     </section>
