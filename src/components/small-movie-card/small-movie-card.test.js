@@ -6,7 +6,9 @@ it(`Render SmallMovieCard`, () => {
   const films = {
     name: `Интерстеллар`,
     picture: `${IMG_URL}`,
-    id: 1
+    id: 1,
+    play: true,
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   };
 
   const tree = renderer
@@ -16,6 +18,8 @@ it(`Render SmallMovieCard`, () => {
         picture={films.picture}
         id={films.id}
         key={films.name}
+        play={films.play}
+        preview={films.preview}
         onMovieCardHover={() => {}}
         onMovieCardUnhover={() => {}}
         onMovieCardTitleClick={() => {}}

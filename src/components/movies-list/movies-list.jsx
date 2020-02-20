@@ -3,22 +3,34 @@ import SmallMovieCard from '../small-movie-card/small-movie-card';
 class MoviesList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {activeHoverMovieName: ``};
+    this.state = {
+      activeHoverMovieId: ``,
+      isPlaying: false
+    };
 
     this._movieCardHoverHandler = this._movieCardHoverHandler.bind(this);
     this._movieCardUnhoverHandler = this._movieCardUnhoverHandler.bind(this);
+    this._togglePlay = this._togglePlay.bind(this);
   }
 
-  // _movieCardHoverHandler(id) {
-  //   setTimeout(() => this.setState({activeHoverMovieName: id}), 1000);
-  // }
+  _togglePlay(id) {
+    setTimeout(() => {
+      if (this.state.activeHoverMovieId === id) {
+        this.setState((prevState) => ({
+          isPlaying: !prevState.isPlaying
+        }));
+      }
+    }, 1000);
+  }
 
   _movieCardHoverHandler(id) {
-    this.setState({activeHoverMovieName: id});
+    this.setState(
+        () => ({activeHoverMovieId: id}),
+        () => this._togglePlay(id));
   }
 
   _movieCardUnhoverHandler() {
-    this.setState({activeHoverMovieName: null});
+    this.setState({activeHoverMovieId: null, isPlaying: false});
   }
 
   render() {
@@ -33,7 +45,7 @@ class MoviesList extends React.Component {
             key={item.id}
             id={item.id}
             preview={item.preview}
-            play={this.state.activeHoverMovieName ? this.state.activeHoverMovieName : null}
+            play={this.state.activeHoverMovieId === item.id && this.state.isPlaying}
             onMovieCardTitleClick={onMovieCardTitleClick}
             onMovieCardHover={this._movieCardHoverHandler}
             onMovieCardUnhover={this._movieCardUnhoverHandler}

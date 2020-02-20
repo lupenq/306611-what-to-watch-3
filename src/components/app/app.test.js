@@ -21,6 +21,7 @@ it(`Render App`, () => {
       ratingScore: `2.5`,
       ratingLevel: `Very good`,
       ratingCount: `759`,
+      preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
     },
     {
       id: 2,
@@ -35,6 +36,7 @@ it(`Render App`, () => {
       ratingScore: `10`,
       ratingLevel: `Very good`,
       ratingCount: `2566`,
+      preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
     }];
 
   const tree = renderer

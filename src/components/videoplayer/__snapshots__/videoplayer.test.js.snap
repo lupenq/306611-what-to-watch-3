@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Videoplayer 1`] = `
+<video
+  autoPlay={true}
+  muted={true}
+  onClick={[Function]}
+  poster="https://www.kinopoisk.ru/images/film_big/258687.jpg"
+  width="100%"
+>
+  <source
+    src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+  />
+</video>
+`;

@@ -7,7 +7,9 @@ it(`Should hover on SmallMovieCard`, () => {
   const films = {
     name: `Интерстеллар`,
     picture: `${IMG_URL}`,
-    id: 1
+    id: 1,
+    play: true,
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   };
 
 
@@ -20,6 +22,8 @@ it(`Should hover on SmallMovieCard`, () => {
         picture={films.picture}
         key={films.name}
         id={films.id}
+        play={films.play}
+        preview={films.preview}
         onMovieCardTitleClick={onMovieCardTitleClick}
         onMovieCardHover={onMovieCardHover}
         onMovieCardUnhover={() => {}}
@@ -41,7 +45,9 @@ it(`Should click on SmallMovieCard`, () => {
   const films = {
     name: `Интерстеллар`,
     picture: `${IMG_URL}`,
-    id: 1
+    id: 1,
+    play: true,
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   };
 
 
@@ -54,6 +60,8 @@ it(`Should click on SmallMovieCard`, () => {
         picture={films.picture}
         key={films.name}
         id={films.id}
+        play={films.play}
+        preview={films.preview}
         onMovieCardTitleClick={onMovieCardTitleClick}
         onMovieCardHover={onMovieCardHover}
         onMovieCardUnhover={() => {}}

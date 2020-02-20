@@ -1,14 +1,49 @@
-const Videoplayer = ({preview, picture}) => {
-  return (
-    <video poster={picture} muted autoPlay width="100%" height="100%">
-      <source src={preview}/>
-    </video>
-  );
-};
+class Videoplayer extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this._videoRef = React.createRef();
+
+    this.state = {
+      isPlaying: false
+    };
+
+    this.handleVideoPlay = this.handleVideoPlay.bind(this);
+  }
+
+  handleVideoPlay() {
+    const video = this._videoRef.current;
+    if (video.paused) {
+      video.play();
+      this.setState({isPlaying: true});
+    } else {
+      video.pause();
+      this.setState({isPlaying: false});
+    }
+  }
+
+  render() {
+    const {preview, picture} = this.props;
+
+    return (
+      <video
+        ref={this._videoRef}
+        onClick={this.handleVideoPlay}
+        poster={picture}
+        muted={true}
+        autoPlay={true}
+        width="100%">
+        <source src={preview}/>
+      </video>
+    );
+  }
+
+}
 
 Videoplayer.propTypes = {
   preview: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
+  play: PropTypes.bool
 };
 
 export default Videoplayer;

@@ -1,9 +1,6 @@
 import Videoplayer from '../videoplayer/videoplayer';
 
 const SmallMovieCard = ({name, picture, onMovieCardHover, onMovieCardUnhover, onMovieCardTitleClick, id, play, preview}) => {
-  const playVideo = () => {
-    return play === id ? <Videoplayer preview={preview} picture={picture}/> : <img src={picture} alt={name} width="280" height="175"/>;
-  };
 
   return (
 
@@ -14,7 +11,9 @@ const SmallMovieCard = ({name, picture, onMovieCardHover, onMovieCardUnhover, on
       onClick={() => onMovieCardTitleClick(id)}
     >
       <div className="small-movie-card__image">
-        {playVideo()}
+        {play ?
+          <Videoplayer preview={preview} picture={picture} play={play}/>
+          : <img src={picture} alt={name} width="280" height="175"/>}
       </div>
       <h3 className="small-movie-card__title">
         <a className="small-movie-card__link"
@@ -36,10 +35,7 @@ SmallMovieCard.propTypes = {
   onMovieCardHover: PropTypes.func.isRequired,
   onMovieCardUnhover: PropTypes.func.isRequired,
   onMovieCardTitleClick: PropTypes.func.isRequired,
-  play: PropTypes.oneOfType([
-    PropTypes.string.isRequired,
-    PropTypes.oneOf([null]).isRequired,
-  ]).isRequired,
+  play: PropTypes.bool.isRequired,
   preview: PropTypes.string.isRequired
 };
 
