@@ -36,8 +36,11 @@ SmallMovieCard.propTypes = {
   onMovieCardHover: PropTypes.func.isRequired,
   onMovieCardUnhover: PropTypes.func.isRequired,
   onMovieCardTitleClick: PropTypes.func.isRequired,
-  play: PropTypes.any,
-  preview: PropTypes.any
+  play: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.oneOf([null]).isRequired,
+  ]).isRequired,
+  preview: PropTypes.string.isRequired
 };
 
 export default SmallMovieCard;
