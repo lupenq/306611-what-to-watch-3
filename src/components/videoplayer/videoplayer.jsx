@@ -23,13 +23,12 @@ class Videoplayer extends React.PureComponent {
   }
 
   render() {
-    const {preview, picture} = this.props;
+    const {preview} = this.props;
 
     return (
       <video
         ref={this._videoRef}
         onClick={this.handleVideoPlay}
-        poster={picture}
         muted={true}
         autoPlay={true}
         width="100%">
@@ -42,7 +41,6 @@ class Videoplayer extends React.PureComponent {
 
 Videoplayer.propTypes = {
   preview: PropTypes.string.isRequired,
-  picture: PropTypes.string.isRequired,
   play: PropTypes.bool
 };
 
