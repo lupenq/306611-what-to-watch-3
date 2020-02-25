@@ -5,7 +5,6 @@ exports[`Render Videoplayer 1`] = `
   autoPlay={true}
   muted={true}
   onClick={[Function]}
-  poster="https://www.kinopoisk.ru/images/film_big/258687.jpg"
   width="100%"
 >
   <source

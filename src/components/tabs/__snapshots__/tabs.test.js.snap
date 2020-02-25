@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Tabs 1`] = `
+<div
+  className="movie-card__desc"
+>
+  <nav
+    className="movie-nav movie-card__nav"
+  >
+    <ul
+      className="movie-nav__list"
+    >
+      <li
+        className="movie-nav__item movie-nav__item--active"
+        onClick={[Function]}
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+        >
+          Overview
+        </a>
+      </li>
+      <li
+        className="movie-nav__item "
+        onClick={[Function]}
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+        >
+          Details
+        </a>
+      </li>
+      <li
+        className="movie-nav__item "
+        onClick={[Function]}
+      >
+        <a
+          className="movie-nav__link"
+          href="#"
+        >
+          Reviews
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    className="movie-rating"
+  >
+    <div
+      className="movie-rating__score"
+    >
+      2.5
+    </div>
+    <p
+      className="movie-rating__meta"
+    >
+      <span
+        className="movie-rating__level"
+      >
+        Bad
+      </span>
+      <span
+        className="movie-rating__count"
+      >
+        759
+         ratings
+      </span>
+    </p>
+  </div>
+  <div
+    className="movie-card__text"
+  >
+    <p>
+      Когда засуха, пыльные бури и вымирание растений приводят человечество к продовольственному кризису, коллектив исследователей и учёных отправляется сквозь червоточину (которая предположительно соединяет области пространства-времени через большое расстояние) в путешествие, чтобы превзойти прежние ограничения для космических путешествий человека и найти планету с подходящими для человечества условиями.
+    </p>
+    <p
+      className="movie-card__director"
+    >
+      <strong>
+        Director: 
+        Кристофер Нолан
+      </strong>
+    </p>
+    <p
+      className="movie-card__starring"
+    >
+      <strong>
+        Starring: 
+        Мэттью МакКонахи, Энн Хэтэуэй, Джессика Честейн, Маккензи Фой, Майкл Кейн, Дэвид Гяси, Уэс Бентли, Мэтт Дэймон
+         and other
+      </strong>
+    </p>
+  </div>
+</div>
+`;

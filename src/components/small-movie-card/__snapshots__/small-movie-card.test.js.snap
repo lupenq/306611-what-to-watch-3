@@ -14,7 +14,6 @@ exports[`Render SmallMovieCard 1`] = `
       autoPlay={true}
       muted={true}
       onClick={[Function]}
-      poster="https://api.adorable.io/avatars/128"
       width="100%"
     >
       <source

@@ -162,6 +162,7 @@ Array [
             >
               <li
                 className="movie-nav__item movie-nav__item--active"
+                onClick={[Function]}
               >
                 <a
                   className="movie-nav__link"
@@ -171,7 +172,8 @@ Array [
                 </a>
               </li>
               <li
-                className="movie-nav__item"
+                className="movie-nav__item "
+                onClick={[Function]}
               >
                 <a
                   className="movie-nav__link"
@@ -181,7 +183,8 @@ Array [
                 </a>
               </li>
               <li
-                className="movie-nav__item"
+                className="movie-nav__item "
+                onClick={[Function]}
               >
                 <a
                   className="movie-nav__link"
@@ -234,9 +237,9 @@ Array [
               className="movie-card__starring"
             >
               <strong>
-                Starring: 
+                Starring: 
                 Мэттью МакКонахи, Энн Хэтэуэй, Джессика Честейн, Маккензи Фой, Майкл Кейн, Дэвид Гяси, Уэс Бентли, Мэтт Дэймон
-                 и другие
+                 and other
               </strong>
             </p>
           </div>
