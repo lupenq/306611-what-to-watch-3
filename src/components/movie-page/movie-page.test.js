@@ -7,6 +7,7 @@ it(`Render MoviePage`, () => {
   .create(
       <MoviePage
         id={ID}
+        onMovieCardTitleClick={() => {}}
       />
   ).toJSON();
 

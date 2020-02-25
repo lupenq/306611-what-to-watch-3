@@ -263,14 +263,17 @@ Array [
       >
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
+              alt="Интерстеллар4"
               height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="https://www.kinopoisk.ru/images/film_big/258687.jpg"
               width="280"
             />
           </div>
@@ -280,21 +283,25 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
-              Fantastic Beasts: The Crimes of Grindelwald
+              Интерстеллар4
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Bohemian Rhapsody"
+              alt="Интерстеллар6"
               height="175"
-              src="img/bohemian-rhapsody.jpg"
+              src="https://www.kinopoisk.ru/images/film_big/258687.jpg"
               width="280"
             />
           </div>
@@ -304,21 +311,25 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
-              Bohemian Rhapsody
+              Интерстеллар6
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Macbeth"
+              alt="Интерстеллар7"
               height="175"
-              src="img/macbeth.jpg"
+              src="https://www.kinopoisk.ru/images/film_big/258687.jpg"
               width="280"
             />
           </div>
@@ -328,21 +339,25 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
-              Macbeth
+              Интерстеллар7
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Aviator"
+              alt="Интерстеллар8"
               height="175"
-              src="img/aviator.jpg"
+              src="https://www.kinopoisk.ru/images/film_big/258687.jpg"
               width="280"
             />
           </div>
@@ -352,8 +367,9 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
-              Aviator
+              Интерстеллар8
             </a>
           </h3>
         </article>

@@ -1,8 +1,9 @@
 import films from '../../mocks/films';
 import Tabs from '../tabs/tabs';
+import SimilarMovies from '../similar-movies/similar-movies';
 
 const MoviePage = (props) => {
-  const {id} = props;
+  const {id, onMovieCardTitleClick} = props;
 
   const movie = films.find((item) => item.id === id);
 
@@ -64,7 +65,6 @@ const MoviePage = (props) => {
           <div className="movie-card__poster movie-card__poster--big">
             <img src={movie.picture} alt={movie.name + ` poster`} width="218" height="327" />
           </div>
-
           <Tabs movie={movie} />
         </div>
       </div>
@@ -73,44 +73,12 @@ const MoviePage = (props) => {
     <div className="page-content">
       <section className="catalog catalog--like-this">
         <h2 className="catalog__title">More like this</h2>
-
-        <div className="catalog__movies-list">
-          <article className="small-movie-card catalog__movies-card">
-            <div className="small-movie-card__image">
-              <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
-            </div>
-            <h3 className="small-movie-card__title">
-              <a className="small-movie-card__link" href="movie-page.html">Fantastic Beasts: The Crimes of Grindelwald</a>
-            </h3>
-          </article>
-
-          <article className="small-movie-card catalog__movies-card">
-            <div className="small-movie-card__image">
-              <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width="280" height="175" />
-            </div>
-            <h3 className="small-movie-card__title">
-              <a className="small-movie-card__link" href="movie-page.html">Bohemian Rhapsody</a>
-            </h3>
-          </article>
-
-          <article className="small-movie-card catalog__movies-card">
-            <div className="small-movie-card__image">
-              <img src="img/macbeth.jpg" alt="Macbeth" width="280" height="175" />
-            </div>
-            <h3 className="small-movie-card__title">
-              <a className="small-movie-card__link" href="movie-page.html">Macbeth</a>
-            </h3>
-          </article>
-
-          <article className="small-movie-card catalog__movies-card">
-            <div className="small-movie-card__image">
-              <img src="img/aviator.jpg" alt="Aviator" width="280" height="175" />
-            </div>
-            <h3 className="small-movie-card__title">
-              <a className="small-movie-card__link" href="movie-page.html">Aviator</a>
-            </h3>
-          </article>
-        </div>
+        <SimilarMovies
+          films={films}
+          genre={movie.genre}
+          movieId={movie.id}
+          onMovieCardTitleClick={onMovieCardTitleClick}
+        />
       </section>
 
       <footer className="page-footer">
@@ -132,7 +100,8 @@ const MoviePage = (props) => {
 };
 
 MoviePage.propTypes = {
-  id: PropTypes.number.isRequired
+  id: PropTypes.number.isRequired,
+  onMovieCardTitleClick: PropTypes.func.isRequired
 };
 
 export default MoviePage;

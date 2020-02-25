@@ -33,6 +33,10 @@ class MoviesList extends React.Component {
     this.setState({activeHoverMovieId: null, isPlaying: false});
   }
 
+  componentWillUnmount() {
+    this.setState({activeHoverMovieId: null, isPlaying: false});
+  }
+
   render() {
     const {filmsList, onMovieCardTitleClick} = this.props;
 

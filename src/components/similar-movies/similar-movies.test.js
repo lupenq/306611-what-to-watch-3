@@ -1,4 +1,6 @@
-export default [
+import SimilarMovies from './similar-movies';
+
+const films = [
   {
     id: 1,
     name: `Интерстеллар1`,
@@ -353,3 +355,19 @@ export default [
     ]
   }
 ];
+
+const genre = `Фантастика`;
+const id = 1;
+it(`Render SimilarMovies`, () => {
+  const tree = renderer
+    .create(
+        <SimilarMovies
+          films={films}
+          genre={genre}
+          movieId={id}
+          onMovieCardTitleClick={() => {}}
+        />
+    ).toJSON();
+
+  expect(tree).toMatchSnapshot();
+});

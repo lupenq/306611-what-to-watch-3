@@ -3,7 +3,6 @@ import Videoplayer from '../videoplayer/videoplayer';
 const SmallMovieCard = ({name, picture, onMovieCardHover, onMovieCardUnhover, onMovieCardTitleClick, id, play, preview}) => {
 
   return (
-
     <article
       className="small-movie-card catalog__movies-card"
       onMouseOver={() => onMovieCardHover(id)}

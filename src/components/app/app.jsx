@@ -22,6 +22,7 @@ class App extends React.PureComponent {
       return (
         <MoviePage
           id={this.state.activeMovieId}
+          onMovieCardTitleClick={this._MovieCardTitleClickHandler}
         />
       );
     }
@@ -45,6 +46,7 @@ class App extends React.PureComponent {
           <Route exact path="/dev-movie-page">
             <MoviePage
               id={moviePage.id}
+              onMovieCardTitleClick={this._MovieCardTitleClickHandler}
             />
           </Route>
         </Switch>
