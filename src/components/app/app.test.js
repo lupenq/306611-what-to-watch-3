@@ -1,13 +1,18 @@
 import App from './app';
+import {Provider} from "react-redux";
+import configureStore from "redux-mock-store";
+
 
 it(`Render App`, () => {
+  const mockStore = configureStore([]);
+
   const promoSettings = {
     name: `Криминальное чтиво`,
     genre: `Драма/Криминальный`,
     date: `23 сентября 1994 г.`
   };
 
-  const filmsList = [
+  const films = [
     {
       id: 1,
       name: `Интерстеллар1`,
@@ -39,11 +44,20 @@ it(`Render App`, () => {
       preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
     }];
 
+  const store = mockStore({
+    genre: `All genre`,
+    films
+  });
+
   const tree = renderer
-  .create(<App
-    promoSettings={promoSettings}
-    filmsList={filmsList}
-  />)
+  .create(
+      <Provider store={store}>
+        <App
+          promoSettings={promoSettings}
+          filmsList={films}
+        />
+      </Provider>
+  )
     .toJSON();
 
   expect(tree).toMatchSnapshot();

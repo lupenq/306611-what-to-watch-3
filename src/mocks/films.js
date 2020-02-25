@@ -46,7 +46,7 @@ export default [
   {
     id: 2,
     name: `Зеленая книга`,
-    genre: `комедия`,
+    genre: `Комедия`,
     year: `2018`,
     director: `Питер Фаррелли`,
     starring: [
