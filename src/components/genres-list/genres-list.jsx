@@ -1,6 +1,7 @@
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer";
 import MoviesList from "../movies-list/movies-list";
+import ShowMore from '../show-more/show-more';
 
 class GenresList extends React.PureComponent {
   constructor(props) {
@@ -16,7 +17,7 @@ class GenresList extends React.PureComponent {
   }
 
   render() {
-    const {filmsList, genre, changeGenre, onMovieCardTitleClick} = this.props;
+    const {filmsList, genre, changeGenre, onMovieCardTitleClick, showingCardsNow} = this.props;
 
     return (
       <>
@@ -44,6 +45,9 @@ class GenresList extends React.PureComponent {
           filmsList={this.getMoviesByGenre(genre, filmsList)}
           onMovieCardTitleClick={onMovieCardTitleClick}
         />
+        {
+          this.getMoviesByGenre(genre, filmsList) <= showingCardsNow ? null : <ShowMore />
+        }
       </>
     );
   }
@@ -55,11 +59,13 @@ GenresList.propTypes = {
   onMovieCardTitleClick: PropTypes.func.isRequired,
   genre: PropTypes.string.isRequired,
   changeGenre: PropTypes.func.isRequired,
+  showingCardsNow: PropTypes.number.isRequired
 };
 
 const mapStateToProps = (state) => ({
   genre: state.genre,
-  filmsList: state.films
+  filmsList: state.films,
+  showingCardsNow: state.showingCardsNow,
 });
 
 const mapDispatchToProps = (dispatch) => ({

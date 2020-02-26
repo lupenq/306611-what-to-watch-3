@@ -3,6 +3,7 @@ import films from "./mocks/films";
 
 const initialState = {
   genre: `All genres`,
+  showingCardsNow: 8,
   films
 };
 

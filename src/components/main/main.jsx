@@ -1,4 +1,4 @@
-import GenresList from "../genres-list/genres-list.jsx";
+import GenresList from "../genres-list/genres-list";
 
 const Main = ({promoSettings, onMovieCardTitleClick}) => {
   return (
@@ -64,9 +64,6 @@ const Main = ({promoSettings, onMovieCardTitleClick}) => {
 
       <GenresList onMovieCardTitleClick={onMovieCardTitleClick}/>
 
-      <div className="catalog__more">
-        <button className="catalog__button" type="button">Show more</button>
-      </div>
     </section>
 
     <footer className="page-footer">
