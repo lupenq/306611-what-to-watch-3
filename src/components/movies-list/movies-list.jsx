@@ -1,5 +1,7 @@
 import SmallMovieCard from '../small-movie-card/small-movie-card';
 
+const PLAY_TIMEOUT = 1000;
+
 class MoviesList extends React.Component {
   constructor(props) {
     super(props);
@@ -13,14 +15,19 @@ class MoviesList extends React.Component {
     this._togglePlay = this._togglePlay.bind(this);
   }
 
+  componentWillUnmount() {
+    clearTimeout(this.timer);
+    this.setState({activeHoverMovieId: null, isPlaying: false});
+  }
+
   _togglePlay(id) {
-    setTimeout(() => {
+    this.timer = setTimeout(() => {
       if (this.state.activeHoverMovieId === id) {
         this.setState((prevState) => ({
           isPlaying: !prevState.isPlaying
         }));
       }
-    }, 1000);
+    }, PLAY_TIMEOUT);
   }
 
   _movieCardHoverHandler(id) {
@@ -33,15 +40,33 @@ class MoviesList extends React.Component {
     this.setState({activeHoverMovieId: null, isPlaying: false});
   }
 
-  componentWillUnmount() {
-    this.setState({activeHoverMovieId: null, isPlaying: false});
+  _getSimilarMovies(movies, genre, id) {
+    const simiLarMovies = movies
+      .filter((movie) => movie.genre === genre && movie.id !== id)
+      .slice(0, 4);
+    return simiLarMovies;
   }
 
   render() {
-    const {filmsList, onMovieCardTitleClick} = this.props;
+    const {filmsList, onMovieCardTitleClick, similarId, similarGenre} = this.props;
+    const simiLarMovie = this._getSimilarMovies(filmsList, similarGenre, similarId);
 
     return <div className="catalog__movies-list">
-      {
+      {similarId
+        ?
+        simiLarMovie.map((item) => (
+          <SmallMovieCard
+            name={item.name}
+            picture={item.picture}
+            key={item.id}
+            id={item.id}
+            preview={item.preview}
+            play={this.state.activeHoverMovieId === item.id && this.state.isPlaying}
+            onMovieCardTitleClick={onMovieCardTitleClick}
+            onMovieCardHover={this._movieCardHoverHandler}
+            onMovieCardUnhover={this._movieCardUnhoverHandler}
+          />))
+        :
         filmsList.map((item) => (
           <SmallMovieCard
             name={item.name}
@@ -67,7 +92,9 @@ MoviesList.propTypes = {
         id: PropTypes.number.isRequired
       })
   ),
-  onMovieCardTitleClick: PropTypes.func.isRequired
+  onMovieCardTitleClick: PropTypes.func.isRequired,
+  similarId: PropTypes.number,
+  similarGenre: PropTypes.string
 };
 
 export default MoviesList;

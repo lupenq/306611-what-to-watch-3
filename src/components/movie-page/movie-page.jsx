@@ -1,11 +1,9 @@
 import films from '../../mocks/films';
 import Tabs from '../tabs/tabs';
-import SimilarMovies from '../similar-movies/similar-movies';
+import MoviesList from '../movies-list/movies-list';
 
 const MoviePage = (props) => {
-  const {id, onMovieCardTitleClick} = props;
-
-  const movie = films.find((item) => item.id === id);
+  const {movie, onMovieCardTitleClick} = props;
 
   return (
     <>
@@ -73,10 +71,10 @@ const MoviePage = (props) => {
     <div className="page-content">
       <section className="catalog catalog--like-this">
         <h2 className="catalog__title">More like this</h2>
-        <SimilarMovies
-          films={films}
-          genre={movie.genre}
-          movieId={movie.id}
+        <MoviesList
+          filmsList={films}
+          similarGenre={movie.genre}
+          similarId={movie.id}
           onMovieCardTitleClick={onMovieCardTitleClick}
         />
       </section>
@@ -100,7 +98,31 @@ const MoviePage = (props) => {
 };
 
 MoviePage.propTypes = {
-  id: PropTypes.number.isRequired,
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+    director: PropTypes.string.isRequired,
+    starring: PropTypes.arrayOf(
+        PropTypes.string
+    ).isRequired,
+    description: PropTypes.string.isRequired,
+    bigPoster: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+    preview: PropTypes.string.isRequired,
+    ratingScore: PropTypes.string.isRequired,
+    ratingCount: PropTypes.string.isRequired,
+    runTime: PropTypes.string.isRequired,
+    reviews: PropTypes.arrayOf(
+        PropTypes.shape({
+          rating: PropTypes.number.isRequired,
+          date: PropTypes.string.isRequired,
+          author: PropTypes.string.isRequired,
+          text: PropTypes.string.isRequired
+        })
+    )
+  }),
   onMovieCardTitleClick: PropTypes.func.isRequired
 };
 

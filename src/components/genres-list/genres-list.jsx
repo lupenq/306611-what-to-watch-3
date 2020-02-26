@@ -49,6 +49,14 @@ class GenresList extends React.PureComponent {
   }
 }
 
+
+GenresList.propTypes = {
+  filmsList: PropTypes.array.isRequired,
+  onMovieCardTitleClick: PropTypes.func.isRequired,
+  genre: PropTypes.string.isRequired,
+  changeGenre: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = (state) => ({
   genre: state.genre,
   filmsList: state.films
@@ -59,13 +67,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.changeGenre(genre));
   }
 });
-
-GenresList.propTypes = {
-  filmsList: PropTypes.array.isRequired,
-  onMovieCardTitleClick: PropTypes.func.isRequired,
-  genre: PropTypes.string.isRequired,
-  changeGenre: PropTypes.func.isRequired,
-};
 
 export {GenresList};
 export default connect(mapStateToProps, mapDispatchToProps)(GenresList);

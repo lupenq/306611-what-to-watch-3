@@ -1,18 +1,24 @@
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Main from '../main/main';
 import MoviePage from '../movie-page/movie-page';
-import moviePage from '../../mocks/moviePage';
+import films from '../../mocks/films';
 
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {activeMovieId: null};
+    this.state = {
+      activeMovieId: null,
+      activeMovie: {}
+    };
 
-    this._MovieCardTitleClickHandler = this._MovieCardTitleClickHandler.bind(this);
+    this._movieCardTitleClickHandler = this._movieCardTitleClickHandler.bind(this);
   }
 
-  _MovieCardTitleClickHandler(id) {
-    this.setState({activeMovieId: id});
+  _movieCardTitleClickHandler(id) {
+    this.setState({
+      activeMovieId: id,
+      activeMovie: films.find((item) => item.id === id)
+    });
   }
 
   _renderApp() {
@@ -21,8 +27,8 @@ class App extends React.PureComponent {
     if (this.state.activeMovieId) {
       return (
         <MoviePage
-          id={this.state.activeMovieId}
-          onMovieCardTitleClick={this._MovieCardTitleClickHandler}
+          movie={this.state.activeMovie}
+          onMovieCardTitleClick={this._movieCardTitleClickHandler}
         />
       );
     }
@@ -31,7 +37,7 @@ class App extends React.PureComponent {
       <Main
         promoSettings={promoSettings}
         filmsList={filmsList}
-        onMovieCardTitleClick={this._MovieCardTitleClickHandler}
+        onMovieCardTitleClick={this._movieCardTitleClickHandler}
       />
     );
   }
@@ -45,8 +51,8 @@ class App extends React.PureComponent {
           </Route>
           <Route exact path="/dev-movie-page">
             <MoviePage
-              id={moviePage.id}
-              onMovieCardTitleClick={this._MovieCardTitleClickHandler}
+              movie={this.state.activeMovie}
+              onMovieCardTitleClick={this._movieCardTitleClickHandler}
             />
           </Route>
         </Switch>
