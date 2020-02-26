@@ -122,7 +122,7 @@ MoviePage.propTypes = {
           text: PropTypes.string.isRequired
         })
     )
-  }),
+  }).isRequired,
   onMovieCardTitleClick: PropTypes.func.isRequired
 };
 

@@ -51,7 +51,7 @@ class App extends React.PureComponent {
           </Route>
           <Route exact path="/dev-movie-page">
             <MoviePage
-              movie={this.state.activeMovie}
+              movie={films[0]}
               onMovieCardTitleClick={this._movieCardTitleClickHandler}
             />
           </Route>
