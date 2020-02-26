@@ -1,4 +1,4 @@
-import {GenresList} from "./genres-list.jsx";
+import {GenresList} from "./genres-list";
 
 const films = [
   {

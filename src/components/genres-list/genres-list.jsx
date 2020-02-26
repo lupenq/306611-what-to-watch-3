@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
-import {ActionCreator} from "../../reducer.js";
-import MoviesList from "../movies-list/movies-list.jsx";
+import {ActionCreator} from "../../reducer";
+import MoviesList from "../movies-list/movies-list";
 
 class GenresList extends React.PureComponent {
   constructor(props) {
