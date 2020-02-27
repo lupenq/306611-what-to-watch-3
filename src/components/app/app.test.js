@@ -45,7 +45,8 @@ it(`Render App`, () => {
     }];
 
   const store = mockStore({
-    genre: `All genre`,
+    genre: `All genres`,
+    showingCardsNow: 8,
     films
   });
 

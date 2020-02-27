@@ -154,7 +154,7 @@ Array [
         className="catalog__genres-list"
       >
         <li
-          className="catalog__genres-item "
+          className="catalog__genres-item catalog__genres-item--active"
         >
           <a
             className="catalog__genres-link"
@@ -186,16 +186,63 @@ Array [
       </ul>
       <div
         className="catalog__movies-list"
-      />
-      <div
-        className="catalog__more"
       >
-        <button
-          className="catalog__button"
-          type="button"
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
         >
-          Show more
-        </button>
+          <div
+            className="small-movie-card__image"
+          >
+            <img
+              alt="Интерстеллар1"
+              height="175"
+              src="https://www.kinopoisk.ru/images/film_big/258687.jpg"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+              onClick={[Function]}
+            >
+              Интерстеллар1
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+        >
+          <div
+            className="small-movie-card__image"
+          >
+            <img
+              alt="Зеленая книга"
+              height="175"
+              src="https://www.kinopoisk.ru/images/film_big/1108577.jpg"
+              width="280"
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+              onClick={[Function]}
+            >
+              Зеленая книга
+            </a>
+          </h3>
+        </article>
       </div>
     </section>
     <footer

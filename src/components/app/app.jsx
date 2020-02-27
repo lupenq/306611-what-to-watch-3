@@ -7,16 +7,15 @@ class App extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      activeMovieId: null,
-      activeMovie: {}
+      activeMovie: null
     };
 
     this._movieCardTitleClickHandler = this._movieCardTitleClickHandler.bind(this);
   }
 
   _movieCardTitleClickHandler(id) {
+    window.scroll(0, 0);
     this.setState({
-      activeMovieId: id,
       activeMovie: films.find((item) => item.id === id)
     });
   }
@@ -24,7 +23,7 @@ class App extends React.PureComponent {
   _renderApp() {
     const {filmsList, promoSettings} = this.props;
 
-    if (this.state.activeMovieId) {
+    if (this.state.activeMovie) {
       return (
         <MoviePage
           movie={this.state.activeMovie}

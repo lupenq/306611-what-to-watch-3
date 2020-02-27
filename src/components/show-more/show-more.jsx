@@ -11,6 +11,10 @@ function ShowMore({addCardsWithMovies}) {
   );
 }
 
+ShowMore.propTypes = {
+  addCardsWithMovies: PropTypes.func.isRequired
+};
+
 const mapDispatchToProps = (dispatch) => ({
   addCardsWithMovies(count) {
     dispatch(ActionCreator.addCardsWithMovies(count));

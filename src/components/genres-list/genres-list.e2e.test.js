@@ -1,4 +1,6 @@
 import {GenresList} from "./genres-list";
+import {Provider} from "react-redux";
+import configureStore from "redux-mock-store";
 
 const films = [
   {
@@ -32,17 +34,29 @@ const films = [
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   }];
 
+
 it(`Should change genre`, () => {
+  const mockStore = configureStore([]);
+
   const changeGenre = jest.fn();
   const onMovieCardTitleClick = jest.fn();
 
+  const store = mockStore({
+    genre: `All genres`,
+    showingCardsNow: 8,
+    films
+  });
+
   const genresList = Enzyme.mount(
-      <GenresList
-        filmsList={films}
-        genre={`Фантастика`}
-        changeGenre={changeGenre}
-        onMovieCardTitleClick={onMovieCardTitleClick}
-      />
+      <Provider store={store}>
+        <GenresList
+          filmsList={films}
+          genre={`Фантастика`}
+          changeGenre={changeGenre}
+          onMovieCardTitleClick={onMovieCardTitleClick}
+          showingCardsNow={store.getState().showingCardsNow}
+        />
+      </Provider>
   );
 
   const genreLink = genresList.find(`a.catalog__genres-link`).at(1);

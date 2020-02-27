@@ -46,7 +46,7 @@ class GenresList extends React.PureComponent {
           onMovieCardTitleClick={onMovieCardTitleClick}
         />
         {
-          this.getMoviesByGenre(genre, filmsList) <= showingCardsNow ? null : <ShowMore />
+          this.getMoviesByGenre(genre, filmsList).length >= showingCardsNow && <ShowMore />
         }
       </>
     );
@@ -64,8 +64,8 @@ GenresList.propTypes = {
 
 const mapStateToProps = (state) => ({
   genre: state.genre,
-  filmsList: state.films,
   showingCardsNow: state.showingCardsNow,
+  filmsList: state.films
 });
 
 const mapDispatchToProps = (dispatch) => ({

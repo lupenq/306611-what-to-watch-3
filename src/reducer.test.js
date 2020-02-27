@@ -20,7 +20,8 @@ it(`Reducer should edit genre in store`, () => {
       }
   )
   ).toEqual({
-    genre: `Fantasy`
+    "genre": `Fantasy`,
+    "showingCardsNow": 8,
   });
 });
 

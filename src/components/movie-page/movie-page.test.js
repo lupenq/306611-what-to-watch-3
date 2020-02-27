@@ -1,4 +1,6 @@
 import MoviePage from './movie-page';
+import {Provider} from "react-redux";
+import configureStore from "redux-mock-store";
 
 const movie = {
   id: 1,
@@ -46,12 +48,22 @@ const movie = {
 };
 
 it(`Render MoviePage`, () => {
+  const mockStore = configureStore([]);
+
+  const store = mockStore({
+    genre: `All genres`,
+    showingCardsNow: 8,
+    films: movie
+  });
+
   const tree = renderer
   .create(
-      <MoviePage
-        movie={movie}
-        onMovieCardTitleClick={() => {}}
-      />
+      <Provider store={store}>
+        <MoviePage
+          movie={movie}
+          onMovieCardTitleClick={() => {}}
+        />
+      </Provider>
   ).toJSON();
 
   expect(tree).toMatchSnapshot();
