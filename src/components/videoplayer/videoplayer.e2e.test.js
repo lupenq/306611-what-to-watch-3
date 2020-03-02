@@ -22,3 +22,14 @@ it(`Should click on Videoplayer`, () => {
   expect(play).toHaveBeenCalled();
   play.mockRestore();
 });
+
+// it(`Should click on Videoplayer`, () => {
+
+//   const videoplayer = Enzyme.shallow(
+//       <Videoplayer preview={movie.preview} picture={movie.picture}/>
+//   );
+
+//   expect(videoplayer.state(`isPlaying`)).toBe(false);
+//   videoplayer.simulate(`click`);
+//   expect(videoplayer.state(`isPlaying`)).toBe(true);
+// });

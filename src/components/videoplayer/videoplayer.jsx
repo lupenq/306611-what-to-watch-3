@@ -11,6 +11,7 @@ class Videoplayer extends React.PureComponent {
     this.handleVideoPlay = this.handleVideoPlay.bind(this);
   }
 
+
   handleVideoPlay() {
     const video = this._videoRef.current;
     if (video.paused) {
@@ -21,6 +22,7 @@ class Videoplayer extends React.PureComponent {
       this.setState({isPlaying: false});
     }
   }
+
 
   render() {
     const {preview} = this.props;
