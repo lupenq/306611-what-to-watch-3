@@ -1,4 +1,6 @@
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {ActionCreator} from "../../reducer";
+import {connect} from "react-redux";
 import Main from '../main/main';
 import MoviePage from '../movie-page/movie-page';
 import films from '../../mocks/films';
@@ -6,28 +8,17 @@ import films from '../../mocks/films';
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      activeMovie: null
-    };
 
-    this._movieCardTitleClickHandler = this._movieCardTitleClickHandler.bind(this);
-  }
-
-  _movieCardTitleClickHandler(id) {
-    window.scroll(0, 0);
-    this.setState({
-      activeMovie: films.find((item) => item.id === id)
-    });
   }
 
   _renderApp() {
-    const {filmsList, promoSettings} = this.props;
+    const {filmsList, promoSettings, setActiveMovie, activeMovie} = this.props;
 
-    if (this.state.activeMovie) {
+    if (activeMovie) {
       return (
         <MoviePage
-          movie={this.state.activeMovie}
-          onMovieCardTitleClick={this._movieCardTitleClickHandler}
+          movie={activeMovie}
+          onMovieCardTitleClick={setActiveMovie}
         />
       );
     }
@@ -36,12 +27,13 @@ class App extends React.PureComponent {
       <Main
         promoSettings={promoSettings}
         filmsList={filmsList}
-        onMovieCardTitleClick={this._movieCardTitleClickHandler}
+        onMovieCardTitleClick={setActiveMovie}
       />
     );
   }
 
   render() {
+    const {setActiveMovie} = this.props;
     return (
       <BrowserRouter>
         <Switch>
@@ -51,7 +43,7 @@ class App extends React.PureComponent {
           <Route exact path="/dev-movie-page">
             <MoviePage
               movie={films[0]}
-              onMovieCardTitleClick={this._movieCardTitleClickHandler}
+              onMovieCardTitleClick={setActiveMovie}
             />
           </Route>
         </Switch>
@@ -66,7 +58,21 @@ App.propTypes = {
     genre: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired
   }),
-  filmsList: PropTypes.array.isRequired
+  filmsList: PropTypes.array.isRequired,
+  setActiveMovie: PropTypes.func.isRequired,
+  activeMovie: PropTypes.object
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  activeMovie: state.activeMovie,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setActiveMovie(id) {
+    dispatch(ActionCreator.setActiveMovie(id));
+  }
+});
+
+
+export {App};
+export default connect(mapStateToProps, mapDispatchToProps)(App);

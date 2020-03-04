@@ -12,7 +12,7 @@ const SmallMovieCard = ({name, picture, onMovieCardTitleClick, onMovieCardHover,
     >
       <div className="small-movie-card__image">
         {isPlaying ?
-          <Videoplayer preview={preview} play={isPlaying}/>
+          <Videoplayer preview={preview}/>
           : <img src={picture} alt={name} width="280" height="175"/>}
       </div>
       <h3 className="small-movie-card__title">

@@ -2,6 +2,7 @@ import {reducer, ActionCreator, ActionType} from "./reducer.js";
 import films from "./mocks/films";
 
 const initialState = {
+  activeMovie: null,
   genre: `All genres`,
   showingCardsNow: 8,
   films

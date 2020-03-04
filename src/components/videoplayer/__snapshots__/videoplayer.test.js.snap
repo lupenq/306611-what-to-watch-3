@@ -4,7 +4,6 @@ exports[`Render Videoplayer 1`] = `
 <video
   autoPlay={true}
   muted={true}
-  onClick={[Function]}
   width="100%"
 >
   <source
