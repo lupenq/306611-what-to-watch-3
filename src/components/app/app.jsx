@@ -5,52 +5,34 @@ import Main from '../main/main';
 import MoviePage from '../movie-page/movie-page';
 import films from '../../mocks/films';
 
-class App extends React.PureComponent {
-  constructor(props) {
-    super(props);
 
-  }
+const App = ({filmsList, promoSettings, setActiveMovie, activeMovie}) => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          {
+            activeMovie ?
+              <MoviePage movie={activeMovie} onMovieCardTitleClick={setActiveMovie} />
+              :
+              <Main
+                promoSettings={promoSettings}
+                filmsList={filmsList}
+                onMovieCardTitleClick={setActiveMovie}
+              />
+          }
+        </Route>
+        <Route exact path="/dev-movie-page">
+          <MoviePage
+            movie={films[0]}
+            onMovieCardTitleClick={setActiveMovie}
+          />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+};
 
-  _renderApp() {
-    const {filmsList, promoSettings, setActiveMovie, activeMovie} = this.props;
-
-    if (activeMovie) {
-      return (
-        <MoviePage
-          movie={activeMovie}
-          onMovieCardTitleClick={setActiveMovie}
-        />
-      );
-    }
-
-    return (
-      <Main
-        promoSettings={promoSettings}
-        filmsList={filmsList}
-        onMovieCardTitleClick={setActiveMovie}
-      />
-    );
-  }
-
-  render() {
-    const {setActiveMovie} = this.props;
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            {this._renderApp()}
-          </Route>
-          <Route exact path="/dev-movie-page">
-            <MoviePage
-              movie={films[0]}
-              onMovieCardTitleClick={setActiveMovie}
-            />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    );
-  }
-}
 
 App.propTypes = {
   promoSettings: PropTypes.shape({
