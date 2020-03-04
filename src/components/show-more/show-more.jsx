@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer";
 
-function ShowMore({addCardsWithMovies}) {
+const ShowMore = ({addCardsWithMovies}) => {
   return (
     <div className="catalog__more">
       <button className="catalog__button" type="button"
@@ -9,7 +9,7 @@ function ShowMore({addCardsWithMovies}) {
       >Show more</button>
     </div>
   );
-}
+};
 
 ShowMore.propTypes = {
   addCardsWithMovies: PropTypes.func.isRequired

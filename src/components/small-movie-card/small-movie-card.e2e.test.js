@@ -14,6 +14,8 @@ it(`Should hover on SmallMovieCard`, () => {
   jest.useFakeTimers();
 
   const onMovieCardTitleClick = jest.fn();
+  const onMovieCardHover = jest.fn();
+  const onMovieCardUnhover = jest.fn();
 
   const main = Enzyme.shallow(
       <SmallMovieCard
@@ -22,6 +24,8 @@ it(`Should hover on SmallMovieCard`, () => {
         key={films.name}
         id={films.id}
         preview={films.preview}
+        onMovieCardHover={onMovieCardHover}
+        onMovieCardUnhover={onMovieCardUnhover}
         onMovieCardTitleClick={onMovieCardTitleClick}
       />
   );
@@ -30,7 +34,7 @@ it(`Should hover on SmallMovieCard`, () => {
   movieCards.first().simulate(`mouseover`);
   jest.advanceTimersByTime(1000);
 
-  expect(main.state(`isPlaying`)).toBe(true);
+  expect(onMovieCardHover.mock.calls.length).toBe(movieCards.length);
 });
 
 it(`Should click on SmallMovieCard`, () => {

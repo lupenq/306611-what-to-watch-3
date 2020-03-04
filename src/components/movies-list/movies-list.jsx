@@ -1,31 +1,26 @@
 import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer";
 import SmallMovieCard from '../small-movie-card/small-movie-card';
+import withActiveMovieCard from '../../hocs/with-active-movie-card';
 
-class MoviesList extends React.PureComponent {
-  constructor(props) {
-    super(props);
+const SmallMovieCardWrapped = withActiveMovieCard(SmallMovieCard);
 
-    this.state = {
-    };
-  }
+const _getSimilarMovies = (movies, genre, id) => {
+  return movies
+    .filter((movie) => movie.genre === genre && movie.id !== id)
+    .slice(0, 4);
+};
 
-  _getSimilarMovies(movies, genre, id) {
-    const similarMovies = movies
-      .filter((movie) => movie.genre === genre && movie.id !== id)
-      .slice(0, 4);
-    return similarMovies;
-  }
 
-  render() {
-    const {filmsList, onMovieCardTitleClick, similarId, similarGenre, showingCardsNow} = this.props;
-    const similarMovie = this._getSimilarMovies(filmsList, similarGenre, similarId);
+const MoviesList = ({filmsList, onMovieCardTitleClick, similarId, similarGenre, showingCardsNow}) => {
+  const similarMovie = _getSimilarMovies(filmsList, similarGenre, similarId);
 
-    return <div className="catalog__movies-list">
+  return (
+    <div className="catalog__movies-list">
       {similarId
         ?
         similarMovie.map((item) => (
-          <SmallMovieCard
+          <SmallMovieCardWrapped
             name={item.name}
             picture={item.picture}
             key={item.id}
@@ -37,7 +32,7 @@ class MoviesList extends React.PureComponent {
         filmsList
           .slice(0, showingCardsNow)
           .map((item) => (
-            <SmallMovieCard
+            <SmallMovieCardWrapped
               name={item.name}
               picture={item.picture}
               key={item.id}
@@ -46,9 +41,10 @@ class MoviesList extends React.PureComponent {
               onMovieCardTitleClick={onMovieCardTitleClick}
             />))
       }
-    </div>;
-  }
-}
+    </div>
+  );
+};
+
 
 MoviesList.propTypes = {
   filmsList: PropTypes.arrayOf(
