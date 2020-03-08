@@ -21,9 +21,7 @@ store.dispatch(Operation.getHeaderMovie());
 
 ReactDOM.render(
     <Provider store={store}>
-      <App
-        filmsList={store.getState().films}
-      />
+      <App />
     </Provider>
     ,
     document.querySelector(`#root`)

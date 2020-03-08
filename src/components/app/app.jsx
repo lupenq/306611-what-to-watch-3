@@ -3,10 +3,9 @@ import {ActionCreator} from "../../reducer";
 import {connect} from "react-redux";
 import Main from '../main/main';
 import MoviePage from '../movie-page/movie-page';
-import films from '../../mocks/films';
 
 
-const App = ({filmsList, setActiveMovie, activeMovie}) => {
+const App = ({setActiveMovie, activeMovie}) => {
   return (
     <BrowserRouter>
       <Switch>
@@ -16,16 +15,9 @@ const App = ({filmsList, setActiveMovie, activeMovie}) => {
               <MoviePage movie={activeMovie} onMovieCardTitleClick={setActiveMovie} />
               :
               <Main
-                filmsList={filmsList}
                 onMovieCardTitleClick={setActiveMovie}
               />
           }
-        </Route>
-        <Route exact path="/dev-movie-page">
-          <MoviePage
-            movie={films[0]}
-            onMovieCardTitleClick={setActiveMovie}
-          />
         </Route>
       </Switch>
     </BrowserRouter>
@@ -34,7 +26,6 @@ const App = ({filmsList, setActiveMovie, activeMovie}) => {
 
 
 App.propTypes = {
-  filmsList: PropTypes.array.isRequired,
   setActiveMovie: PropTypes.func.isRequired,
   activeMovie: PropTypes.object
 };
