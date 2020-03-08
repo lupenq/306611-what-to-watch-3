@@ -1,11 +1,12 @@
+import {connect} from "react-redux";
 import GenresList from "../genres-list/genres-list";
 
-const Main = ({promoSettings, onMovieCardTitleClick}) => {
+const Main = ({headerMovie, onMovieCardTitleClick}) => {
   return (
     <>
   <section className="movie-card">
     <div className="movie-card__bg">
-      <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+      <img src={headerMovie.bigPosterUrl} alt={headerMovie.name} />
     </div>
 
     <h1 className="visually-hidden">WTW</h1>
@@ -29,14 +30,14 @@ const Main = ({promoSettings, onMovieCardTitleClick}) => {
     <div className="movie-card__wrap">
       <div className="movie-card__info">
         <div className="movie-card__poster">
-          <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+          <img src={headerMovie.posterUrl} alt={headerMovie.name} width="218" height="327" />
         </div>
 
         <div className="movie-card__desc">
-          <h2 className="movie-card__title">{promoSettings.name}</h2>
+          <h2 className="movie-card__title">{headerMovie.name}</h2>
           <p className="movie-card__meta">
-            <span className="movie-card__genre">{promoSettings.genre}</span>
-            <span className="movie-card__year">{promoSettings.date}</span>
+            <span className="movie-card__genre">{headerMovie.genre}</span>
+            <span className="movie-card__year">{headerMovie.releaseYear}</span>
           </p>
 
           <div className="movie-card__buttons">
@@ -85,13 +86,33 @@ const Main = ({promoSettings, onMovieCardTitleClick}) => {
 };
 
 Main.propTypes = {
-  promoSettings: PropTypes.shape({
+  headerMovie: PropTypes.shape({
     name: PropTypes.string.isRequired,
+    posterUrl: PropTypes.string.isRequired,
+    bigPosterUrl: PropTypes.string.isRequired,
+    director: PropTypes.string.isRequired,
+    starring: PropTypes.arrayOf(PropTypes.string).isRequired,
+    runTime: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired
-  }),
+    releaseYear: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired,
+    votes: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    reviews: PropTypes.arrayOf(
+        PropTypes.shape({
+          rating: PropTypes.number.isRequired,
+          date: PropTypes.string.isRequired,
+          author: PropTypes.string.isRequired,
+          text: PropTypes.string.isRequired
+        })
+    ).isRequired
+  }).isRequired,
   filmsList: PropTypes.array.isRequired,
   onMovieCardTitleClick: PropTypes.func.isRequired
 };
 
-export default Main;
+const mapStateToProps = (state) => ({
+  headerMovie: state.headerMovie
+});
+
+export default connect(mapStateToProps)(Main);

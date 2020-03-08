@@ -6,7 +6,7 @@ import MoviePage from '../movie-page/movie-page';
 import films from '../../mocks/films';
 
 
-const App = ({filmsList, promoSettings, setActiveMovie, activeMovie}) => {
+const App = ({filmsList, setActiveMovie, activeMovie}) => {
   return (
     <BrowserRouter>
       <Switch>
@@ -16,7 +16,6 @@ const App = ({filmsList, promoSettings, setActiveMovie, activeMovie}) => {
               <MoviePage movie={activeMovie} onMovieCardTitleClick={setActiveMovie} />
               :
               <Main
-                promoSettings={promoSettings}
                 filmsList={filmsList}
                 onMovieCardTitleClick={setActiveMovie}
               />
@@ -35,11 +34,6 @@ const App = ({filmsList, promoSettings, setActiveMovie, activeMovie}) => {
 
 
 App.propTypes = {
-  promoSettings: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired
-  }),
   filmsList: PropTypes.array.isRequired,
   setActiveMovie: PropTypes.func.isRequired,
   activeMovie: PropTypes.object

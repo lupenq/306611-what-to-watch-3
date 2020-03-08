@@ -1,26 +1,28 @@
 import ReactDOM from 'react-dom';
 import App from './components/app/app';
-import films from './mocks/films';
-import {createStore} from 'redux';
-import {reducer} from "./reducer.js";
+import {createStore, applyMiddleware} from 'redux';
+import {reducer} from './reducer';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
+import {createAPI} from './api';
+import {composeWithDevTools} from "redux-devtools-extension";
+import {Operation} from './reducer';
 
-const promoSettings = {
-  name: `Криминальное чтиво`,
-  genre: `Драма/Криминальный`,
-  date: `23 сентября 1994 г.`
-};
+
+const api = createAPI();
 
 const store = createStore(
     reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+    composeWithDevTools(applyMiddleware(thunk.withExtraArgument(api)))
 );
+
+store.dispatch(Operation.getMovies());
+store.dispatch(Operation.getHeaderMovie());
 
 ReactDOM.render(
     <Provider store={store}>
       <App
-        promoSettings={promoSettings}
-        filmsList={films}
+        filmsList={store.getState().films}
       />
     </Provider>
     ,
