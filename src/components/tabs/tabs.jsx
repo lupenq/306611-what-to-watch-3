@@ -1,4 +1,7 @@
 import {Fragment} from 'react';
+import {connect} from 'react-redux';
+import {Operation} from "../../reducer";
+
 
 class Tabs extends React.PureComponent {
   constructor(props) {
@@ -39,7 +42,7 @@ class Tabs extends React.PureComponent {
   }
 
   render() {
-    const {movie} = this.props;
+    const {movie, overviews, getOverviews} = this.props;
 
     return (
       <>
@@ -68,6 +71,7 @@ class Tabs extends React.PureComponent {
               onClick={
                 (e) => {
                   e.preventDefault();
+                  getOverviews(movie.id);
                   this._activeTabHandler(`reviews`);
                 }}
               className={`movie-nav__item ${this._getActiveClassName(`reviews`)}`}>
@@ -140,18 +144,18 @@ class Tabs extends React.PureComponent {
           this.state.activeTab === `reviews` &&
           <div className="movie-card__reviews movie-card__row">
             <div className="movie-card__reviews-col">
-              {movie.reviews.map((review, index) => (
-                <div className="review" key={index + review.author}>
+              {overviews.map((overview) => (
+                <div className="review" key={overview.id}>
                   <blockquote className="review__quote">
-                    <p className="review__text">{review.text}</p>
+                    <p className="review__text">{overview.comment}</p>
                     <footer className="review__details">
-                      <cite className="review__author">{review.author}</cite>
-                      <time className="review__date">
-                        {review.date}
+                      <cite className="review__author">{overview.user.name}</cite>
+                      <time className="review__date" dateTime={overview.date}>
+                        {overview.date}
                       </time>
                     </footer>
                   </blockquote>
-                  <div className="review__rating">{review.rating}</div>
+                  <div className="review__rating">{overview.rating}</div>
                 </div>
               ))}
             </div>
@@ -186,7 +190,26 @@ Tabs.propTypes = {
           text: PropTypes.string
         })
     )
-  })
+  }),
+  overviews: PropTypes.arrayOf(
+      PropTypes.shape({
+        rating: PropTypes.number.isRequired,
+        date: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired,
+        comment: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired
+      })).isRequired
 };
 
-export default Tabs;
+const mapStateToProps = (state) => ({
+  overviews: state.activeMovieOverviews
+});
+
+
+const mapDispatchToProps = (dispatch) => ({
+  getOverviews(id) {
+    dispatch(Operation.getOverviews(id));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Tabs);

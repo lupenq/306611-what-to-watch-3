@@ -37,6 +37,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   setActiveMovie(id) {
     dispatch(ActionCreator.setActiveMovie(id));
+  },
+  getOverviews(id) {
+    dispatch(ActionCreator.getOverviews(id));
   }
 });
 

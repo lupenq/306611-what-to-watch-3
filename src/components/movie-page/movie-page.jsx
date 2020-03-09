@@ -1,9 +1,10 @@
-import films from '../../mocks/films';
 import Tabs from '../tabs/tabs';
 import MoviesList from '../movies-list/movies-list';
+import {connect} from 'react-redux';
+
 
 const MoviePage = (props) => {
-  const {movie, onMovieCardTitleClick} = props;
+  const {movie, onMovieCardTitleClick, films} = props;
 
   return (
     <>
@@ -126,4 +127,8 @@ MoviePage.propTypes = {
   onMovieCardTitleClick: PropTypes.func.isRequired
 };
 
-export default MoviePage;
+const mapStateToProps = (state) => ({
+  films: state.films
+});
+
+export default connect(mapStateToProps)(MoviePage);

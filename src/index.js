@@ -18,10 +18,12 @@ const store = createStore(
 
 store.dispatch(Operation.getMovies());
 store.dispatch(Operation.getHeaderMovie());
+// store.dispatch(Operation.getOverviews());
+
 
 ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <App getOverviews={(id) => store.dispatch(Operation.getOverviews(id))} />
     </Provider>
     ,
     document.querySelector(`#root`)

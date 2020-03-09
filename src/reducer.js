@@ -8,6 +8,7 @@ const initialState = {
   headerMovie: {},
   showingCardsNow: 8,
   films: [],
+  activeMovieOverviews: [],
 };
 
 const ActionType = {
@@ -16,7 +17,8 @@ const ActionType = {
   ADD_CARDS_WITH_MOVIES: `ADD_CARDS_WITH_MOVIES`,
   SET_ACTIVE_MOVIE: `SET_ACTIVE_MOVIE`,
   GET_MOVIES: `GET_MOVIES`,
-  GET_HEADER_MOVIE: `GET_HEADER_MOVIE`
+  GET_HEADER_MOVIE: `GET_HEADER_MOVIE`,
+  GET_OVERVIEWS: `GET_OVERVIEWS`,
 };
 
 export const Operation = {
@@ -29,7 +31,12 @@ export const Operation = {
     return api.get(`/films/promo`).then((response) => {
       dispatch(ActionCreator.getHeaderMovie(adaptMovieData(response.data)));
     });
-  }
+  },
+  getOverviews: (id) => (dispatch, getState, api) => {
+    return api.get(`/comments/${id}`).then((response) => {
+      dispatch(ActionCreator.getOverviews(response.data));
+    });
+  },
 };
 
 const ActionCreator = {
@@ -52,6 +59,10 @@ const ActionCreator = {
   getHeaderMovie: (movie) => ({
     type: ActionType.GET_HEADER_MOVIE,
     payload: movie
+  }),
+  getOverviews: (overviews) => ({
+    type: ActionType.GET_OVERVIEWS,
+    payload: overviews
   }),
 };
 
@@ -78,6 +89,10 @@ const reducer = (state = initialState, action) => {
     case ActionType.GET_HEADER_MOVIE:
       return extend(state, {
         headerMovie: action.payload
+      });
+    case ActionType.GET_OVERVIEWS:
+      return extend(state, {
+        activeMovieOverviews: action.payload
       });
   }
 
